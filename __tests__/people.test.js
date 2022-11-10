@@ -55,12 +55,27 @@ describe('backend-express-template routes', () => {
     `);
   });
 
+  it('/ should create a person', async () => {
+    const lawson = {
+      first_name: 'lawson',
+      last_name: 'mcphetridge',
+    };
+
+    const resp = await request(app).post('/people').send(lawson);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "first_name": "lawson",
+        "id": "6",
+        "last_name": "mcphetridge",
+      }
+    `);
+  });
+
     
-    it('/ should insert into people', async () => {
-        const resp = await request(app).get('/people')
+    it('/ should update someone', async () => {
+        const resp = await request(app).put('/people/1').send({ first_name: 'newName' });
         expect(resp).toBe(200);
     })
-    
     
     
   afterAll(() => {
