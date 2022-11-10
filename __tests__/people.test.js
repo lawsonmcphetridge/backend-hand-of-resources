@@ -55,6 +55,14 @@ describe('backend-express-template routes', () => {
     `);
   });
 
+    
+    it('/ should insert into people', async () => {
+        const resp = await request(app).get('/people')
+        expect(resp).toBe(200);
+    })
+    
+    
+    
   afterAll(() => {
     pool.end();
   });
