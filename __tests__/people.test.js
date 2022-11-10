@@ -1,5 +1,7 @@
 const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
+const { request } = require('../lib/app');
+const app = require('../lib/app');
 
 
 describe('backend-express-template routes', () => {
@@ -8,9 +10,10 @@ describe('backend-express-template routes', () => {
     });
 
 
-    
-    it('example test - delete me!', () => {
-        expect(1).toEqual(1);
+
+    it('/people should render a list of people', async () => {
+        const resp = await request(app).get('/people');
+        expect(resp).toBe(200);
     });
 
 
