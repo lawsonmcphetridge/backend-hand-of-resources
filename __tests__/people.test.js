@@ -43,15 +43,18 @@ describe('backend-express-template routes', () => {
     `);
   });
 
-    
-    it('/:id should bring back one person', async () => {
-        const resp = await request(app).get('/people/1');
-        expect(resp.status).toBe(200);
-    })
-    
-    
-    
-    
+  it('/:id should bring back one person', async () => {
+    const resp = await request(app).get('/people/1');
+    const expected = await People.getSinglePerson('1');
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "first_name": "Udale",
+        "id": "1",
+        "last_name": "Baggelley",
+      }
+    `);
+  });
+
   afterAll(() => {
     pool.end();
   });
