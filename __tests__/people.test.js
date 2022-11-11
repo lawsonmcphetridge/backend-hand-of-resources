@@ -73,10 +73,13 @@ describe('backend-express-template routes', () => {
 
     
   it('/ should update someone', async () => {
-    const resp = await request(app).put('/people/1').send({ first_name: 'newName' });
-    expect(resp).toBe(200);
+    const resp = await request(app).put('/people/1').send({ first_name: 'newName', last_name: 'Newlastname' });
+    expect(resp.status).toBe(200);
   });
     
+
+
+  it('/ should delete a user')
     
   afterAll(() => {
     pool.end();
