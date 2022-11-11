@@ -78,8 +78,8 @@ describe('backend-express-template routes', () => {
   it('/ should delete a user', async () => {
     const resp = await request(app).delete('/people/3');
     expect(resp.status).toBe(200);
-    const people = await request(app).get('/people/2');
-    expect(people.status).toBe(404);
+    const people = await request(app).get('/people/3');
+    expect(people.body).toEqual(null);
   });
 
   afterAll(() => {
