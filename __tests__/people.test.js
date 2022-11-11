@@ -79,7 +79,10 @@ describe('backend-express-template routes', () => {
     
 
 
-  it('/ should delete a user')
+  it('/ should delete a user', async () => {
+    const resp = await request(app).delete('/people/1');
+    expect(resp.status).toBe(200);
+  });
     
   afterAll(() => {
     pool.end();
