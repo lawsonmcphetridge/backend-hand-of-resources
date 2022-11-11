@@ -72,10 +72,10 @@ describe('backend-express-template routes', () => {
   });
 
     
-    it('/ should update someone', async () => {
-        const resp = await request(app).put('/people/1').send({ first_name: 'newName' });
-        expect(resp).toBe(200);
-    })
+  it('/ should update someone', async () => {
+    const resp = await request(app).put('/people/1').send({ first_name: 'newName' });
+    expect(resp).toBe(200);
+  });
     
     
   afterAll(() => {
