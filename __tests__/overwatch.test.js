@@ -53,7 +53,7 @@ describe('tests for dog route', () => {
   });
 
     
-  it('/overwatch should craete a char', async () => {
+  it('/overwatch should create a char', async () => {
     const newChar = {
       name: 'new',
       role: 'tank'
