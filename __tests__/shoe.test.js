@@ -67,6 +67,14 @@ describe('tests for dog route', () => {
     `);
   });
 
+  it('/ should update a shoe', async () => {
+    const resp = await request(app).put('/shoes/1').send({ name: 'shoeNew', brand: 'coolBrand' });
+    expect(resp.status).toBe(200);
+  });
+
+    
+    
+    
   afterAll(() => {
     pool.end();
   });
