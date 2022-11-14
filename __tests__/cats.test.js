@@ -73,6 +73,14 @@ describe('tests for dog route', () => {
     expect(resp.status).toBe(200);
   });
 
+    
+  it('/ should delete a cat', async () => {
+    const resp = await request(app).delete('/cat/3');
+    expect(resp.status).toBe(200);
+    const catNew = await request(app).get('/cat/3');
+    expect(catNew.body).toEqual(null);
+  });
+
   afterAll(() => {
     pool.end();
   });
