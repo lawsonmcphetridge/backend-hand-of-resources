@@ -51,6 +51,16 @@ describe('tests for dog route', () => {
       }
     `);
   });
+    
+    
+  it('/ should create a person', async () => {
+    const dog = {
+      name: 'lawson',
+      breed: 'golden',
+    };
+    const resp = await request(app).post('/people').send(dog);
+    expect(resp.body).toMatchInlineSnapshot();
+  });
 
   afterAll(() => {
     pool.end();
