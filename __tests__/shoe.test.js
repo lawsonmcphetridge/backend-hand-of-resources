@@ -10,8 +10,8 @@ describe('tests for dog route', () => {
   });
 
   it('/ should render a list of shoes', async () => {
-      const resp = await request(app).get('/shoes');
-      expect(resp.body).toMatchInlineSnapshot();
+    const resp = await request(app).get('/shoes');
+    expect(resp.body).toMatchInlineSnapshot();
   });
     
     
