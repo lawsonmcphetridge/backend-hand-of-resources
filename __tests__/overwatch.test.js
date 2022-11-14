@@ -66,6 +66,16 @@ describe('tests for dog route', () => {
       }
     `);
   });
+    
+    
+    
+  it('/ should update a char', async () => {
+    const resp = await request(app).put('/overwatch/1').send({ name: 'testname', role: 'healer' });
+    expect(resp.status).toBe(200);
+  });
+    
+    
+    
   afterAll(() => {
     pool.end();
   });
