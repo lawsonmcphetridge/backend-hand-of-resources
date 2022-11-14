@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS dog;
 DROP TABLE IF EXISTS overwatch;
 DROP TABLE IF EXISTS shoes;
+DROP TABLE IF EXISTS cat;
 
 CREATE TABLE people (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -25,6 +26,12 @@ CREATE TABLE shoes (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR,
     brand VARCHAR
+);
+
+CREATE TABLE cat (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR,
+    breed VARCHAR
 );
 
 
@@ -74,5 +81,18 @@ VALUES
 ('adidas', 'SwiftRun'),
 ('yeezy', 'zebra'),
 ('classic', 'vans')
+;
+
+
+INSERT INTO cat (
+    name,
+    breed
+)
+VALUES
+('Udo', 'Siamese'),
+('Evelina', 'Persian'),
+('Chen', 'Ragdoll'),
+('Vilhelmi', 'Sphynx'),
+('Laurentino', 'Birman')
 ;
 
