@@ -73,7 +73,12 @@ describe('tests for dog route', () => {
     const resp = await request(app).put('/overwatch/1').send({ name: 'testname', role: 'healer' });
     expect(resp.status).toBe(200);
   });
-    
+  it('/ should delete a user', async () => {
+    const resp = await request(app).delete('/overwatch/3');
+    expect(resp.status).toBe(200);
+    const people = await request(app).get('/overwatch/3');
+    expect(people.body).toEqual(null);
+  });
     
     
   afterAll(() => {
