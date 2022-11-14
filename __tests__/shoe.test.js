@@ -40,7 +40,12 @@ describe('tests for dog route', () => {
       ]
     `);
   });
-
+    
+  it('/:id should bring back one shoe', async () => {
+    const resp = await request(app).get('/shoe/1');
+    expect(resp.body).toMatchInlineSnapshot();
+  });
+    
   afterAll(() => {
     pool.end();
   });
