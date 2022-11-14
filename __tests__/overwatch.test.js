@@ -52,6 +52,15 @@ describe('tests for dog route', () => {
     `);
   });
 
+    
+  it('/overwatch should craete a char', async () => {
+    const newChar = {
+      name: 'new',
+      role: 'tank'
+    };
+    const resp = await request(app).post('/overwatch').send(newChar);
+    expect(resp.body).toMatchInlineSnapshot();
+  });
   afterAll(() => {
     pool.end();
   });
