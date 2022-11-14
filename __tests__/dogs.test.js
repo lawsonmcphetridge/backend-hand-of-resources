@@ -51,15 +51,20 @@ describe('tests for dog route', () => {
       }
     `);
   });
-    
-    
-  it('/ should create a person', async () => {
+
+  it('/ should create a dog', async () => {
     const dog = {
       name: 'lawson',
       breed: 'golden',
     };
-    const resp = await request(app).post('/people').send(dog);
-    expect(resp.body).toMatchInlineSnapshot();
+    const resp = await request(app).post('/dog').send(dog);
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "breed": "golden",
+        "id": "6",
+        "name": "lawson",
+      }
+    `);
   });
 
   afterAll(() => {
