@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS dog;
+DROP TABLE IF EXISTS overwatch;
 
 CREATE TABLE people (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -8,9 +9,15 @@ CREATE TABLE people (
 );
 
 CREATE TABLE dog (
-id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-name VARCHAR,
-breed VARCHAR
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR,
+    breed VARCHAR
+);
+
+CREATE TABLE overwatch (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR,
+    role VARCHAR
 );
 
 
@@ -37,5 +44,19 @@ VALUES
 ('Heimir', 'Poodle'),
 ('Helios', 'Bulldog'),
 ('Berna', 'Husky')
+;
+
+INSERT INTO overwatch (
+    name,
+    role
+)
+
+VALUES
+('Mercy', 'Healer'),
+('DoomFist', 'Tank'),
+('Mcree', 'Dps'),
+('Tracer', 'Dps'),
+('Roadhog', 'Tank')
+
 
 ;
