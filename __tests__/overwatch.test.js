@@ -10,12 +10,9 @@ describe('tests for dog route', () => {
 
   it('/overwatch should render a list of characters', async () => {
     const resp = await request(app).get('/overwatch');
+    expect(resp.body).toMatchInlineSnapshot();
   });
-    
-    
-    
-    
-    
+
   afterAll(() => {
     pool.end();
   });
