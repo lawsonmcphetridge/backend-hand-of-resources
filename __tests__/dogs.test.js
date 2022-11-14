@@ -41,12 +41,17 @@ describe('tests for dog route', () => {
     `);
   });
 
-    
-    
   it('/dog/1 should render a single dog', async () => {
-
+    const resp = await request(app).get('/dog/1');
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "breed": "Golden",
+        "id": "1",
+        "name": "Hendricus",
+      }
+    `);
   });
-    
+
   afterAll(() => {
     pool.end();
   });
