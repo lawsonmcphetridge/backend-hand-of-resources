@@ -66,6 +66,12 @@ describe('tests for dog route', () => {
       }
     `);
   });
+    
+    
+  it('/ should update dog', async () => {
+    const resp = await request(app).put('/dog/1').send({ name: 'newNewName', breed: 'daDog' });
+    expect(resp.status).toBe(200);
+  });
 
   afterAll(() => {
     pool.end();
