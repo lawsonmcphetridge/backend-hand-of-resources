@@ -51,6 +51,16 @@ describe('tests for dog route', () => {
       }
     `);
   });
+    
+  it('/ should create a shoe', async () => {
+    const newShoe = {
+      name: 'lawson',
+      brand: 'nike',
+    };
+    const resp = await request(app).post('/shoes').send(newShoe);
+    expect(resp.body).toMatchInlineSnapshot();
+  });
+
 
   afterAll(() => {
     pool.end();
