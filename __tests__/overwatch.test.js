@@ -77,8 +77,8 @@ describe('tests for dog route', () => {
   it('/ should delete a user', async () => {
     const resp = await request(app).delete('/overwatch/3');
     expect(resp.status).toBe(200);
-    const people = await request(app).get('/overwatch/3');
-    expect(people.body).toEqual(null);
+    const heroos = await request(app).get('/overwatch/3');
+    expect(heroos.body).toEqual(null);
   });
 
   afterAll(() => {

@@ -72,7 +72,12 @@ describe('tests for dog route', () => {
     expect(resp.status).toBe(200);
   });
 
-    
+  it('/ should delete a shoe', async () => {
+    const resp = await request(app).delete('/shoes/3');
+    expect(resp.status).toBe(200);
+    const shoooes = await request(app).get('/shoes/3');
+    expect(shoooes.body).toEqual(null);
+  });
     
     
   afterAll(() => {
