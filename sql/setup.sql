@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS dog;
 DROP TABLE IF EXISTS overwatch;
+DROP TABLE IF EXISTS shoes;
 
 CREATE TABLE people (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -20,6 +21,12 @@ CREATE TABLE overwatch (
     role VARCHAR
 );
 
+CREATE TABLE shoes (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR,
+    brand VARCHAR
+);
+
 
 INSERT INTO people (
     first_name,
@@ -37,7 +44,6 @@ INSERT INTO dog (
     name,
     breed
 )
-
 VALUES
 ('Hendricus', 'Golden'),
 ('Freyr', 'German'),
@@ -50,13 +56,23 @@ INSERT INTO overwatch (
     name,
     role
 )
-
 VALUES
 ('Mercy', 'Healer'),
 ('DoomFist', 'Tank'),
 ('Mcree', 'Dps'),
 ('Tracer', 'Dps'),
 ('Roadhog', 'Tank')
-
-
 ;
+
+INSERT INTO shoes (
+    name,
+    brand
+)
+VALUES
+('nike', 'dunk'),
+('yeezy', 'slides'),
+('adidas', 'SwiftRun'),
+('yeezy', 'zebra'),
+('classic', 'vans')
+;
+

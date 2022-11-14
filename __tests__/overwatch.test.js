@@ -42,12 +42,12 @@ describe('tests for dog route', () => {
   });
 
   it('/overwatch/1 should render a single char', async () => {
-    const resp = await request(app).get('/overwatch/1');
+    const resp = await request(app).get('/overwatch/2');
     expect(resp.body).toMatchInlineSnapshot(`
       Object {
-        "id": "1",
-        "name": "Mercy",
-        "role": "Healer",
+        "id": "2",
+        "name": "DoomFist",
+        "role": "Tank",
       }
     `);
   });
@@ -66,23 +66,21 @@ describe('tests for dog route', () => {
       }
     `);
   });
-    
-    
-    
+
   it('/ should update a char', async () => {
-    const resp = await request(app).put('/overwatch/1').send({ name: 'testname', role: 'healer' });
+    const resp = await request(app)
+      .put('/overwatch/1')
+      .send({ name: 'testname', role: 'healer' });
     expect(resp.status).toBe(200);
   });
-    
-    
+
   it('/ should delete a user', async () => {
     const resp = await request(app).delete('/overwatch/3');
     expect(resp.status).toBe(200);
     const people = await request(app).get('/overwatch/3');
     expect(people.body).toEqual(null);
   });
-    
-    
+
   afterAll(() => {
     pool.end();
   });
