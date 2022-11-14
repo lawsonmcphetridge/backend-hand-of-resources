@@ -41,11 +41,17 @@ describe('tests for dog route', () => {
     `);
   });
 
-  it('/overwatch/1 should render a single char', async (req, res) => {
+  it('/overwatch/1 should render a single char', async () => {
     const resp = await request(app).get('/overwatch/1');
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "id": "1",
+        "name": "Mercy",
+        "role": "Healer",
+      }
+    `);
   });
-    
-    
+
   afterAll(() => {
     pool.end();
   });
