@@ -41,6 +41,12 @@ describe('tests for dog route', () => {
     `);
   });
 
+    
+    
+  it('/dog/1 should render a single dog', async () => {
+
+  });
+    
   afterAll(() => {
     pool.end();
   });
