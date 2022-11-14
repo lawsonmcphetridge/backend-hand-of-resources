@@ -40,12 +40,18 @@ describe('tests for dog route', () => {
       ]
     `);
   });
-    
+
   it('/:id should bring back one shoe', async () => {
-    const resp = await request(app).get('/shoe/1');
-    expect(resp.body).toMatchInlineSnapshot();
+    const resp = await request(app).get('/shoes/1');
+    expect(resp.body).toMatchInlineSnapshot(`
+      Object {
+        "brand": "dunk",
+        "id": "1",
+        "name": "nike",
+      }
+    `);
   });
-    
+
   afterAll(() => {
     pool.end();
   });
